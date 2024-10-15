@@ -4,7 +4,9 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require("mongoose");
-const url = "mongodb+srv://Juva:lopez132@cluster.eqeq0.mongodb.net/"
+//const url = "mongodb+srv://Juva:lopez132@cluster.eqeq0.mongodb.net/"
+
+const mongoURL = require('./config').variablesDeConfuguracion.mongoURL;
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users')
@@ -32,7 +34,7 @@ app.use(function(req, res, next) {
   next(createError(404));
 });
 
-mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect(mongoURL, {useNewUrlParser: true, useUnifiedTopology: true})
   .then(() => console.log('Conectado a la base de datos'))
   .catch((err) => console.log(err));
 
