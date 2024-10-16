@@ -24,7 +24,7 @@ router.get('/obtener-saludo', function(req, res, next) {
 
       let saludoAleatorio = saludos[Math.floor(Math.random() * saludos.length)];
 
-      res.send(saludoAleatorio);
+      res.json(saludoAleatorio);
 });
 
 router.get('/listado-tareas', async function (req, res) {
