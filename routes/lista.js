@@ -4,6 +4,8 @@ var mongoose = require('mongoose');
 
 var listaControllers = require('../controllers/lista.controllers');
 
+router.get('/obtener-saludo', listaControllers.obtenerSaludo);
+
 router.get('/listado-tareas', listaControllers.listaTareas);
 
 router.post('/crear-tarea', listaControllers.crearTarea);

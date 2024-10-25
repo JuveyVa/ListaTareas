@@ -8,7 +8,7 @@ function obtenerDiaActual() {
     return new Date().toLocaleDateString('es-ES', dia);
   }
 
-router.get('/obtener-saludo', function(req, res, next) {
+async function obtenerSaludo(req, res) {
     const diaActual = obtenerDiaActual();
     const saludos = [
       `Hoy es ${diaActual}, ¡qué gran noticia!`,
@@ -19,7 +19,7 @@ router.get('/obtener-saludo', function(req, res, next) {
       let saludoAleatorio = saludos[Math.floor(Math.random() * saludos.length)];
 
       res.json(saludoAleatorio);
-});
+};
 
 async function listaTareas(req, res) {
     try {
@@ -85,6 +85,7 @@ async function concluirTarea(req, res) {
 };
 
 module.exports = {
+    obtenerSaludo,
     listaTareas,
     crearTarea,
     eliminarTarea,
