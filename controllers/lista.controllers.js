@@ -36,7 +36,7 @@ async function crearTarea(req, res) {
   
       const nuevaTarea = new Tarea({
         nombre: nombre,
-        Estado: Estado || false
+        estado: Estado
       });
 
       await nuevaTarea.save();

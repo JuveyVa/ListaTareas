@@ -3,8 +3,14 @@ var router = express.Router();
 var mongoose = require('mongoose');
 
 const tareaEsquema = new mongoose.Schema({
-    nombre: String,
-    Estado: Boolean
+    nombre: {
+      type: String,
+      required: true
+    },
+    estado: {
+      type: Boolean,
+      default: false
+    }
   });
   
 const Tarea = mongoose.model('Tarea', tareaEsquema);
